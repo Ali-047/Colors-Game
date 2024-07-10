@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- title -->
+    <h1>بازی رنگ ها</h1>
+
+    <!-- colorized blocks -->
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <!-- show score -->
+    <h3 id="score"> امتیاز = 0 </h3>
+
+    <!-- default timer options -->
+    <h4> <span id="ms" >00</span> : <span id="sec" >00</span> : <span id="min" >00</span> </h4>
+
+    <!-- gameOver scene -->
+    <div class="losePage hide">
+
+        <p>شما باختید !</p>
+        <h2 id="losePgaeScore"></h2>
+        <h2 id="timeShow"></h2>
+        <button id="restartBtn" >شروع دوباره</button>
+
+    </div>
+
+    <script src="script.js" ></script>
+</body>
+</html>

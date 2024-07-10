@@ -1,0 +1,64 @@
+/* default options & centerize objects */
+body {
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+    height: 95vh;
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: burlywood;
+    position: relative;
+
+}
+/* blocks options */
+.container {
+
+    width: 40%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: repeat(3 , 1fr);
+    
+}
+.item {
+    
+    margin: 1px;
+    border-radius: 8px;
+    transition: all ease 150ms;
+
+}
+/* hider class */
+.hide {
+    display: none;
+}
+/* gameOver scene options */
+.losePage {
+
+    text-align: center;
+    position: absolute;
+    border: 1px solid;
+    width: 50%;
+    height: 82%;
+    background-color: rgb(53, 140, 216);
+    border-radius: 10px;
+
+}
+.losePage p {
+
+    font-size: 50px;
+
+}
+.losePage button {
+
+    font-size: 25px;
+    width: 30%;
+    height: 30%;
+    border-radius: 10px;
+    background-color: rgb(46, 218, 61);
+    margin-top: 5%;
+
+}
