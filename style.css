@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: burlywood;
+    background-color: lightblue;
     position: relative;
 
 }
@@ -31,6 +31,14 @@ body {
     transition: all ease 150ms;
 
 }
+/* score & time panel */
+.score{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 /* hider class */
 .hide {
     display: none;
@@ -42,7 +50,7 @@ body {
     position: absolute;
     border: 1px solid;
     width: 50%;
-    height: 82%;
+    height: 95%;
     background-color: rgb(53, 140, 216);
     border-radius: 10px;
 
@@ -55,10 +63,38 @@ body {
 .losePage button {
 
     font-size: 25px;
-    width: 30%;
+    width: 35%;
     height: 30%;
     border-radius: 10px;
     background-color: rgb(46, 218, 61);
     margin-top: 5%;
 
+}
+/* Responsive */
+@media only screen and (max-width: 1441px) {
+    .losePage{
+        height: 90%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container{
+        height: 50%;
+    }
+    .score{
+        flex-direction: row;
+    }
+    #score {
+        margin-left: 10%;
+    }
+    .losePage p {
+        font-size: 30px;
+    }
+    .losePage button {
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .container{
+        height: 40%;
+    }
 }

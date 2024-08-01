@@ -24,18 +24,21 @@
         <div class="item"></div>
     </div>
 
-    <!-- show score -->
-    <h3 id="score"> امتیاز = 0 </h3>
+    <div class="score">
+        <!-- show score -->
+        <h3 id="score"> امتیاز = 0 </h3>
 
-    <!-- default timer options -->
-    <h4> <span id="ms" >00</span> : <span id="sec" >00</span> : <span id="min" >00</span> </h4>
+        <!-- default timer options -->
+        <h4> <span id="ms" >00</span> : <span id="sec" >10</span> : <span id="min" >00</span> </h4>
+    </div>
 
     <!-- gameOver scene -->
     <div class="losePage hide">
 
-        <p>شما باختید !</p>
+        <p id="timeUp">زمان به اتمام رسید</p>
+        <p id="youLose">شما باختید</p>
         <h2 id="losePgaeScore"></h2>
-        <h2 id="timeShow"></h2>
+        <!-- <h2 id="timeShow"></h2> -->
         <button id="restartBtn" >شروع دوباره</button>
 
     </div>

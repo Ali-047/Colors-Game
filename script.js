@@ -7,9 +7,11 @@ const scoreShow = document.getElementById("score") ;
 const losePgaeScore = document.getElementById("losePgaeScore") ;
 const timeShow = document.getElementById("timeShow") ;
 const restartBtn = document.getElementById("restartBtn") ;
+const timeUp = document.getElementById("timeUp") ;
+const youLose = document.getElementById("youLose") ;
 
 // default timer options
-const defaultTime = [0 , 0 , 0] ;
+const defaultTime = [0 , 9 , 99] ;
 const minute = document.getElementById("min")
 const seconde = document.getElementById("sec")
 const milisec = document.getElementById("ms")
@@ -59,6 +61,7 @@ function colorSmoother(color , amount) {
 // next level event
 function nextLevel() {
 
+    seconde.innerText = stopZero(defaultTime[1]) ;
     score++ ;
     scoreShow.innerText = `امتیاز = ${score}` ;
     colorChanger() ;
@@ -70,36 +73,41 @@ function nextLevel() {
 
         timer = setInterval(function(){
 
-            defaultTime[2]++ ;
+            defaultTime[2]-- ;
         
             if (defaultTime[2] < 10) {
                 milisec.innerText = stopZero(defaultTime[2]) ;
             }else
                 milisec.innerText = defaultTime[2] ;
         
-            if (defaultTime[2] == 99) {
+            if (defaultTime[2] == 0) {
                 
-                defaultTime[1]++ ;
+                defaultTime[1]-- ;
         
-                if (defaultTime[1] == 60) {
+                // if (defaultTime[1] == 60) {
         
-                    defaultTime[1] = 0 ;
-                    defaultTime[2] = 0 ;
-                    defaultTime[0]++ ;
+                //     defaultTime[1] = 0 ;
+                //     defaultTime[2] = 0 ;
+                //     defaultTime[0]++ ;
                     
-                    if (defaultTime[0] < 10) {
-                        minute.innerText = stopZero(defaultTime[0]) ;
-                    }else
-                    minute.innerText = defaultTime[0] ;
+                //     if (defaultTime[0] < 10) {
+                //         minute.innerText = stopZero(defaultTime[0]) ;
+                //     }else
+                //     minute.innerText = defaultTime[0] ;
                     
-                }
+                // }
                 
                 if (defaultTime[1] < 10) {
                     seconde.innerText = stopZero(defaultTime[1]) ;
                 }else
                 seconde.innerText = defaultTime[1] ;
                 
-                defaultTime[2] = 0 ;
+                defaultTime[2] = 99 ;
+            }
+            if (defaultTime[1] == 0) {
+                if (defaultTime[2]) {
+                    endGame() ;
+                }
             }
         } , 10) ;
     }
@@ -108,13 +116,30 @@ function nextLevel() {
 // gameOver event
 function loseGame() {
 
+    timeUp.classList.add("hide") ;
     items.forEach(event => {
         event.removeEventListener("click" , colorChanger) ;
     })
     losePage.classList.remove("hide") ;
     scoreShow.classList.add("hide") ;
     losePgaeScore.innerText = `امتیاز = ${score}` ;
-    timeShow.innerText = `زمان = ${printZero(defaultTime[2])} : ${printZero(defaultTime[1])} : ${printZero(defaultTime[0])}`
+    // timeShow.innerText = `زمان = ${printZero(defaultTime[2])} : ${printZero(defaultTime[1])} : ${printZero(defaultTime[0])}`
+    restartBtn.addEventListener("click" , ()=> location.reload()) ;
+
+    // stop timer
+    clearInterval(timer) ;
+}
+// end game event
+function endGame() {
+
+    youLose.classList.add("hide") ;
+    items.forEach(event => {
+        event.removeEventListener("click" , colorChanger) ;
+    })
+    losePage.classList.remove("hide") ;
+    scoreShow.classList.add("hide") ;
+    losePgaeScore.innerText = `امتیاز = ${score}` ;
+    // timeShow.innerText = `زمان = ${printZero(defaultTime[2])} : ${printZero(defaultTime[1])} : ${printZero(defaultTime[0])}`
     restartBtn.addEventListener("click" , ()=> location.reload()) ;
 
     // stop timer
